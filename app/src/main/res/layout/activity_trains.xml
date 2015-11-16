@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cartrack.android.bartshouldirun.TrainsActivity">
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:layout_width="match_parent" android:layout_height="match_parent"-->
+        <!--android:id="@+id/recyclerView"  />-->
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableRow >
+            <com.cartrack.android.bartshouldirun.SamiView android:id="@+id/sami_view"
+                android:background="@android:color/black" android:layout_width="210dp" />
+            <com.cartrack.android.bartshouldirun.SamiView android:id="@+id/sami_view_2"
+                android:background="@android:color/black" android:layout_width="210dp" />
+        </TableRow>
+    </TableLayout>
+
+
+
+    <FrameLayout android:id="@+id/stack"
+        android:layout_width="match_parent" android:layout_height="240dp"
+        android:layout_gravity="bottom" >
+
+    </FrameLayout>
+
+</FrameLayout>
+

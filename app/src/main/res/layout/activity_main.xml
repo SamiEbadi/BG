@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical" android:background="@android:color/black">
+
+    <TextView android:id="@+id/responseText"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textColor="@android:color/white"/>
+
+    <ScrollView
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="@android:color/black"
+        >
+        <FrameLayout android:id="@+id/main_scroll"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            >
+        </FrameLayout>
+    </ScrollView>
+
+</LinearLayout>
