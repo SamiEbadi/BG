@@ -3,7 +3,6 @@ package com.cartrack.android.bartshouldirun;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,40 +12,17 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Xml;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
-import android.webkit.WebView;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xmlpull.v1.XmlPullParser;
-
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MainActivity extends Activity implements LocationListener {
 
@@ -89,7 +65,7 @@ public class MainActivity extends Activity implements LocationListener {
         //moveRichmond2();
     }
 
-    private void addTrain(MainPageTrain train){
+    private void addTrain(Train train){
         int mins = 0;
         int platform = 0;
         try {
@@ -119,7 +95,7 @@ public class MainActivity extends Activity implements LocationListener {
     }
 
     private void refreshPageWithStationData(Station station){
-        for(MainPageTrain train : station.Trains){
+        for(Train train : station.Trains){
             addTrain(train);
         }
     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/platform_layout"
+    android:layout_width="wrap_content" android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView android:id="@+id/platform_sign"
+        android:layout_width="185dp" android:layout_height="22dp"
+        android:textColor="@color/lead_cream" android:textSize="@dimen/platform_sign_text_size"
+        android:gravity="center_horizontal"/>
+
+    <android.support.v7.widget.RecyclerView android:id="@+id/platform_recycler_view"
+        android:layout_width="185dp" android:layout_height="match_parent" />
+
+</LinearLayout>
+

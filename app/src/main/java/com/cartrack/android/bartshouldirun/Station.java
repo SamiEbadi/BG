@@ -4,20 +4,18 @@ import android.location.Location;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Lenovo on 10/6/2015.
- */
 public class Station implements Parcelable {
 
     private Location mLocation;
     private String mName;
     private String mAbbr;
     public String XmlMessage;
-    public ArrayList<MainPageTrain> Trains;
+    public ArrayList<Train> Trains;
+    public int mNumberOfPlatforms;
+    public Message MessageObject;
 
     public Station(){
 
@@ -29,9 +27,10 @@ public class Station implements Parcelable {
         mLocation.setLatitude(latitude);
         mName = name;
         mAbbr = abbr;
+        mNumberOfPlatforms = 2;
     }
 
-    public void addTrains(List<MainPageTrain> trains){
+    public void addTrains(List<Train> trains){
         if(trains == null){
             trains = new ArrayList<>();
         }
@@ -48,6 +47,10 @@ public class Station implements Parcelable {
 
     public String getAbbr(){
         return mAbbr;
+    }
+
+    public int getNumberOfPlatform(){
+        return mNumberOfPlatforms;
     }
 
     @Override

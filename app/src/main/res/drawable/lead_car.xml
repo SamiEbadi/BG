@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:id="@+id/train_car_color" android:color="#ff888888" />
+
+    <corners android:bottomRightRadius="2dp" android:bottomLeftRadius="25dp"
+        android:topLeftRadius="25dp" android:topRightRadius="2dp"/>
+
+</shape>

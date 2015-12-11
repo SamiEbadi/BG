@@ -2,7 +2,7 @@ package com.cartrack.android.bartshouldirun;
 
 import android.graphics.Color;
 
-public class MainPageTrain {
+public class Train {
 
     private String mXmlMinutes;
     private int mMinutes;
@@ -14,11 +14,11 @@ public class MainPageTrain {
     public boolean IsEmpty;
     private int mTrainColor;
 
-    public MainPageTrain(){
+    public Train(){
         IsEmpty = true;
     }
 
-    public MainPageTrain(String dest, String xmlMinutes, String xmlColor){
+    public Train(String dest, String xmlMinutes, String xmlColor){
         XmlDestination = dest;
         setMinutes(xmlMinutes);
         setColor(xmlColor);
@@ -56,5 +56,23 @@ public class MainPageTrain {
 
     public String getHexColor(){
         return mXmlHexColor;
+    }
+
+    public int getPlatform() {
+        try{
+            return Integer.parseInt(XmlPlatform);
+        }catch (Exception e){
+
+        }
+        return 1;
+    }
+
+    public int getLength() {
+        try{
+            return Integer.parseInt(XmlLength);
+        }catch (Exception e){
+
+        }
+        return 1;
     }
 }

@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/all_stations_root"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    tools:context="com.cartrack.android.bartshouldirun.AllStationsActivity"
+    android:orientation="vertical" android:background="@drawable/background" >
+
+    <FrameLayout android:id="@+id/all_stations_header"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <ImageView android:layout_width="70dp" android:layout_height="50dp"
+            android:src="@drawable/location" android:layout_margin="5dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:src="@drawable/bartglance"/>
+
+    </FrameLayout>
+
+    <FrameLayout android:id="@+id/content_layout"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_below="@id/all_stations_header">
+
+        <com.cartrack.android.bartshouldirun.ObservableScrollView android:id="@+id/all_stations_scroll_view"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:paddingTop="@dimen/shadow_threshold"
+                android:paddingBottom="200dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                android:background="@drawable/line_orange" android:alpha="@dimen/line_alpha"
+                                android:layout_marginRight="@dimen/third_line_margin" android:layout_gravity="right"/>
+                            <LinearLayout
+                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                android:background="@drawable/line_red" android:alpha="@dimen/line_alpha"
+                                android:layout_marginRight="@dimen/forth_line_margin" android:layout_gravity="right"/>
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/richmond"
+                                    android:onClick="onStationClick" android:tag="0"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/delnorte"
+                                    android:onClick="onStationClick" android:tag="1"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/plaza"
+                                    android:onClick="onStationClick" android:tag="2"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/north_berkeley"
+                                    android:onClick="onStationClick" android:tag="3"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/downtown_berkeley"
+                                    android:onClick="onStationClick" android:tag="4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/ashby"
+                                    android:onClick="onStationClick" android:tag="5"/>
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <FrameLayout android:id="@+id/pittsburg_layout"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/station_sign_section_distance">
+                            <!-- pittsburg line -->
+                            <LinearLayout
+                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                android:background="@drawable/line_yellow" android:alpha="@dimen/line_alpha"
+                                android:layout_gravity="right" android:layout_marginRight="@dimen/second_line_margin" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/pittsburg"
+                                    android:onClick="onStationClick2" android:tag="6"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/north_concord"
+                                    android:onClick="onStationClick2" android:tag="7"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/concord"
+                                    android:onClick="onStationClick2" android:tag="8"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/pleasant_hill"
+                                    android:onClick="onStationClick2" android:tag="9"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/walnut_creek"
+                                    android:onClick="onStationClick2" android:tag="10"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/lafayette"
+                                    android:onClick="onStationClick2" android:tag="11"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/orinda"
+                                    android:onClick="onStationClick2" android:tag="12"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/rockridge"
+                                    android:onClick="onStationClick2" android:tag="13"/>
+
+                                <FrameLayout android:id="@+id/macarthur_layout"
+                                    android:layout_width="match_parent" android:layout_height="wrap_content">
+                                    <LinearLayout
+                                        android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                        android:background="@drawable/line_red" android:alpha="@dimen/line_alpha"
+                                        android:layout_gravity="right" android:layout_marginRight="@dimen/forth_line_margin" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <FrameLayout
+                                            android:layout_width="match_parent" android:layout_height="wrap_content">
+                                            <LinearLayout
+                                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                                android:background="@drawable/line_orange" android:alpha="@dimen/line_alpha"
+                                                android:layout_gravity="right" android:layout_marginRight="@dimen/third_line_margin" />
+                                            <LinearLayout
+                                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                android:orientation="vertical">
+                                                <TextView
+                                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                                    android:textStyle="bold" android:background="@drawable/sign"
+                                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                                    android:textSize="15sp" android:text="@string/macarthur"
+                                                    android:onClick="onStationClick3" android:tag="14"/>
+
+                                                <TextView
+                                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                                    android:textStyle="bold" android:background="@drawable/sign"
+                                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                                    android:textSize="15sp" android:text="@string/oakland19th"
+                                                    android:onClick="onStationClick3" android:tag="15"/>
+
+                                                <TextView
+                                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                                    android:textStyle="bold" android:background="@drawable/sign"
+                                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                                    android:textSize="15sp" android:text="@string/oakland12th"
+                                                    android:onClick="onStationClick3" android:tag="16"/>
+                                            </LinearLayout>
+                                        </FrameLayout>
+                                        <FrameLayout android:id="@+id/west_oakland_layout"
+                                            android:layout_width="match_parent" android:layout_height="wrap_content">
+                                            <LinearLayout
+                                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                                android:background="@drawable/line_blue" android:alpha="@dimen/line_alpha"
+                                                android:layout_gravity="right" android:layout_marginRight="@dimen/first_line_margin"
+                                                android:layout_marginBottom="@dimen/line_overlap_negative_margin"/>
+                                            <LinearLayout
+                                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                                android:background="@drawable/line_green" android:alpha="@dimen/line_alpha"
+                                                android:layout_gravity="right" android:layout_marginRight="@dimen/third_line_margin"
+                                                android:layout_marginBottom="@dimen/line_overlap_negative_margin"/>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                android:orientation="vertical">
+                                                <TextView
+                                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                                    android:textStyle="bold" android:background="@drawable/sign"
+                                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                                    android:textSize="15sp" android:text="@string/west_oakland"
+                                                    android:onClick="onStationClick4" android:tag="17"/>
+                                            </LinearLayout>
+                                        </FrameLayout>
+                                    </LinearLayout>
+                                </FrameLayout>
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <FrameLayout android:id="@+id/lake_merritte_layout"
+                            android:layout_width="match_parent" android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                android:background="@drawable/line_blue" android:alpha="@dimen/line_alpha"
+                                android:layout_gravity="right" android:layout_marginRight="@dimen/first_line_margin"
+                                android:layout_marginTop="@dimen/line_overlap_negative_margin"/>
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <FrameLayout
+                                    android:layout_width="match_parent" android:layout_height="wrap_content">
+                                    <LinearLayout
+                                        android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                        android:background="@drawable/line_green" android:alpha="@dimen/line_alpha"
+                                        android:layout_gravity="right" android:layout_marginRight="@dimen/third_line_margin"
+                                        android:layout_marginTop="@dimen/line_overlap_negative_margin"/>
+                                    <LinearLayout
+                                        android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                        android:background="@drawable/line_orange" android:alpha="@dimen/line_alpha"
+                                        android:layout_gravity="right" android:layout_marginRight="@dimen/second_line_margin"/>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/lake_merritte"
+                                            android:onClick="onStationClick5" android:tag="18"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/fruitvale"
+                                            android:onClick="onStationClick5" android:tag="19"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/coliseum"
+                                            android:onClick="onStationClick5" android:tag="20"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/san_leandro"
+                                            android:onClick="onStationClick5" android:tag="21"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/bay_fair"
+                                            android:onClick="onStationClick5" android:tag="22"/>
+                                    </LinearLayout>
+                                </FrameLayout>
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/castro_valley"
+                                    android:onClick="onStationClick5" android:tag="23"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/west_dublin"
+                                    android:onClick="onStationClick5" android:tag="24"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/dublin"
+                                    android:onClick="onStationClick5" android:tag="25"/>
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <FrameLayout android:id="@+id/hayward_layout"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/station_sign_section_distance">
+                            <LinearLayout
+                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                android:background="@drawable/line_orange" android:alpha="@dimen/line_alpha"
+                                android:layout_gravity="right" android:layout_marginRight="@dimen/second_line_margin" />
+                            <LinearLayout
+                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                android:background="@drawable/line_green" android:alpha="@dimen/line_alpha"
+                                android:layout_gravity="right" android:layout_marginRight="@dimen/third_line_margin"/>
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/hayward"
+                                    android:onClick="onStationClick6" android:tag="26"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/south_hayward"
+                                    android:onClick="onStationClick6" android:tag="27"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/union_city"
+                                    android:onClick="onStationClick6" android:tag="28"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/fremont"
+                                    android:onClick="onStationClick6" android:tag="29"/>
+                            </LinearLayout>
+                        </FrameLayout>
+
+                    </LinearLayout>
+                </FrameLayout>
+
+                <TextView android:id="@+id/san_francisco"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/san_francisco" android:layout_marginTop="@dimen/station_sign_section_distance"
+                    android:paddingRight="3dp" android:paddingLeft="3dp"/>
+                <!--San Francisco-->
+                <FrameLayout android:id="@+id/embarcadero_layout"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" >
+                    <LinearLayout
+                        android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                        android:background="@drawable/line_yellow" android:alpha="@dimen/line_alpha"
+                        android:layout_marginLeft="@dimen/forth_line_margin"/>
+                    <LinearLayout
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                android:background="@drawable/line_red" android:alpha="@dimen/line_alpha"
+                                android:layout_marginLeft="@dimen/third_line_margin"/>
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <FrameLayout
+                                    android:layout_width="match_parent" android:layout_height="wrap_content">
+                                    <LinearLayout
+                                        android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                        android:background="@drawable/line_green" android:alpha="@dimen/line_alpha"
+                                        android:layout_marginLeft="@dimen/first_line_margin"/>
+                                    <LinearLayout
+                                        android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                        android:background="@drawable/line_blue" android:alpha="@dimen/line_alpha"
+                                        android:layout_marginLeft="@dimen/second_line_margin"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/embarcadero"
+                                            android:onClick="onStationClick7" android:tag="30"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/montgomery"
+                                            android:onClick="onStationClick7" android:tag="31"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/powell"
+                                            android:onClick="onStationClick7" android:tag="32"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/civic_center"
+                                            android:onClick="onStationClick7" android:tag="33"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/sf16th"
+                                            android:onClick="onStationClick7" android:tag="34"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/sf24th"
+                                            android:onClick="onStationClick7" android:tag="35"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/glen_park"
+                                            android:onClick="onStationClick7" android:tag="36"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/balboa_park"
+                                            android:onClick="onStationClick7" android:tag="37"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                            android:layout_gravity="center" android:textColor="#E6DB94"
+                                            android:textStyle="bold" android:background="@drawable/sign"
+                                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                            android:textSize="15sp" android:text="@string/daly_city"
+                                            android:onClick="onStationClick7" android:tag="38"/>
+                                    </LinearLayout>
+                                </FrameLayout>
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/colma"
+                                    android:onClick="onStationClick7" android:tag="39"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/south_sf"
+                                    android:onClick="onStationClick7" android:tag="40"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="#E6DB94"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/san_bruno"
+                                    android:onClick="onStationClick7" android:tag="41"/>
+                            </LinearLayout>
+                        </FrameLayout>
+                        <TextView
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_gravity="center" android:textColor="#E6DB94"
+                            android:textStyle="bold" android:background="@drawable/sign"
+                            android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                            android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                            android:textSize="15sp" android:text="@string/sfo"
+                            android:onClick="onStationClick7" android:tag="42"/>
+                        <FrameLayout android:id="@+id/millbrae_layout"
+                            android:layout_width="match_parent" android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_width="@dimen/line_width" android:layout_height="match_parent"
+                                android:background="@drawable/line_red" android:alpha="@dimen/line_alpha"
+                                android:layout_marginLeft="@dimen/third_line_margin"/>
+                            <LinearLayout
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                    android:layout_gravity="center" android:textColor="@color/lead_cream"
+                                    android:textStyle="bold" android:background="@drawable/sign"
+                                    android:layout_marginBottom="@dimen/station_sign_vertical_margin"
+                                    android:layout_marginTop="@dimen/station_sign_vertical_margin"
+                                    android:textSize="15sp" android:text="@string/millbrae"
+                                    android:onClick="onStationClick8" android:tag="43"/>
+                            </LinearLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+        </com.cartrack.android.bartshouldirun.ObservableScrollView>
+
+        <LinearLayout android:id="@+id/header_shadow"
+            android:layout_width="match_parent" android:layout_height="5dp"
+            android:alpha="0" android:background="@drawable/shadow"
+            android:orientation="horizontal"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="right" android:layout_marginTop="3dp">
+            <TextView android:id="@+id/east_bay_fill"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/east_bay" android:alpha="0"
+                android:textColor="@android:color/black" android:background="@android:color/white"
+                android:paddingRight="3dp" android:paddingLeft="3dp"/>
+            <TextView android:id="@+id/east_bay"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/east_bay"
+                android:paddingRight="3dp" android:paddingLeft="3dp"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+            <TextView android:id="@+id/san_francisco_fill"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/san_francisco" android:alpha="0"
+                android:textColor="@android:color/black" android:background="@android:color/white"
+                android:paddingRight="3dp" android:paddingLeft="3dp"/>
+            <TextView android:id="@+id/san_francisco_empty"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/san_francisco" android:alpha="0"
+                android:paddingRight="3dp" android:paddingLeft="3dp"/>
+        </FrameLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

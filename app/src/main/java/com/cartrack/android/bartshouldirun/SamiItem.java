@@ -5,32 +5,32 @@ package com.cartrack.android.bartshouldirun;
  */
 public class SamiItem {
 
-    public MainPageTrain mTrain1;
-    public MainPageTrain mTrain2;
-    public MainPageTrain mTrain3;
-    public MainPageTrain mTrain4;
+    public Train mTrain1;
+    public Train mTrain2;
+    public Train mTrain3;
+    public Train mTrain4;
     public String mTimeLabel;
 
-    public SamiItem(MainPageTrain train1, MainPageTrain train2, String timeLabel){
+    public SamiItem(Train train1, Train train2, String timeLabel){
         init2Trains(train1, train2, timeLabel);
     }
 
-    public SamiItem(MainPageTrain train1, MainPageTrain train2, MainPageTrain train3, String timeLabel) {
+    public SamiItem(Train train1, Train train2, Train train3, String timeLabel) {
         init3Trains(train1,train2,train3,timeLabel);
     }
 
-    public SamiItem(MainPageTrain train1, MainPageTrain train2, MainPageTrain train3, MainPageTrain train4, String timeLabel) {
+    public SamiItem(Train train1, Train train2, Train train3, Train train4, String timeLabel) {
         mTrain4 = train4;
         init3Trains(train1,train2,train3, timeLabel);
     }
 
-    private void init2Trains(MainPageTrain train1, MainPageTrain train2, String timeLabel){
+    private void init2Trains(Train train1, Train train2, String timeLabel){
         mTrain1 = train1;
         mTrain2 = train2;
         mTimeLabel = timeLabel;
     }
 
-    private void init3Trains(MainPageTrain train1, MainPageTrain train2, MainPageTrain train3, String timeLabel){
+    private void init3Trains(Train train1, Train train2, Train train3, String timeLabel){
         init2Trains(train1,train2,timeLabel);
         mTrain3 = train3;
     }

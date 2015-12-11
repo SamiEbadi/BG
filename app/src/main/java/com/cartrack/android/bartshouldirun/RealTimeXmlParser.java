@@ -10,9 +10,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Sami Ebadi on 10/27/2015.
- */
 public class RealTimeXmlParser {
     // We don't use namespaces
     private static final String ns = null;
@@ -42,9 +39,27 @@ public class RealTimeXmlParser {
             if (name.equals("station")) {
                 result = readStation(parser);
             } else if(name.equals("message")) {
-                result.XmlMessage = readTag(parser, "message");
+                result.MessageObject = readMessage(parser);
             }else
             {
+                skip(parser);
+            }
+        }
+        return result;
+    }
+
+    private Message readMessage(XmlPullParser parser) throws XmlPullParserException, IOException {
+        parser.require(XmlPullParser.START_TAG, ns, "message");
+        Message result = new Message();
+        while (parser.next() != XmlPullParser.END_TAG) {
+            if (parser.getEventType() != XmlPullParser.START_TAG) {
+                continue;
+            }
+            String name = parser.getName();
+            if (name.equals("warning")) {
+                String warning = readTag(parser,"warning");
+                result.XmlWarning = warning;
+            } else {
                 skip(parser);
             }
         }
@@ -62,11 +77,11 @@ public class RealTimeXmlParser {
             }
             String name = parser.getName();
             if (name.equals("etd")) {
-                List<MainPageTrain> trains = readEtdTag(parser);
+                List<Train> trains = readEtdTag(parser);
                 if (result.Trains == null) {
                     result.Trains = new ArrayList<>();
                 }
-                for (MainPageTrain train : trains) {
+                for (Train train : trains) {
                     result.Trains.add(train);
                 }
             } else {
@@ -76,9 +91,9 @@ public class RealTimeXmlParser {
         return result;
     }
 
-    private List<MainPageTrain> readEtdTag(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private List<Train> readEtdTag(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "etd");
-        List<MainPageTrain> result = new ArrayList<>();
+        List<Train> result = new ArrayList<>();
         String destination = null;
         String abbreviation = null;
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -91,7 +106,7 @@ public class RealTimeXmlParser {
             }else if (name.equals("abbreviation")) {
                 abbreviation = readTag(parser, "abbreviation");
             }else if (name.equals("estimate")) {
-                MainPageTrain train = readEstimateTag(parser);
+                Train train = readEstimateTag(parser);
                 train.XmlDestination = destination;
                 train.XmlAbbr = abbreviation;
                 train.IsEmpty = false;
@@ -103,9 +118,9 @@ public class RealTimeXmlParser {
         return result;
     }
 
-    private MainPageTrain readEstimateTag(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private Train readEstimateTag(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "estimate");
-        MainPageTrain result = new MainPageTrain();
+        Train result = new Train();
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;

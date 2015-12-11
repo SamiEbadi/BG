@@ -116,14 +116,14 @@ class SamiView extends FrameLayout implements  OnLayoutChangeListener {
         int lowerLimit = Math.max(0, firstItemIndex);
 
         for (int i = (upperLimit -1); i >= lowerLimit; i--) {
-            MainPageTrain theTrain = mData.get(i).mTrain1;
+            Train theTrain = mData.get(i).mTrain1;
             if (!theTrain.IsEmpty) {
                 mCurve.addView(trainViewMaker(theTrain, i - lowerLimit));
             }
         }
     }
 
-    private View trainViewMaker(MainPageTrain aTrainData, int curveIndex) {
+    private View trainViewMaker(Train aTrainData, int curveIndex) {
         View resultTrain = LayoutInflater.from(mContext).inflate(R.layout.train, null, false);
         TextView personName = (TextView) resultTrain.findViewById(R.id.destination);
         TextView personAge = (TextView) resultTrain.findViewById(R.id.time_left);

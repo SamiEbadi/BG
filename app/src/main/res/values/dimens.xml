@@ -2,4 +2,22 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="shadow_threshold">25dp</dimen>
+    <dimen name="station_sign_horizontal_padding">17dp</dimen>
+    <dimen name="station_sign_vertical_margin">3dp</dimen>
+    <dimen name="station_sign_section_distance">25dp</dimen>
+    <dimen name="line_width">4dp</dimen>
+    <dimen name="line_margin">4dp</dimen>
+    <dimen name="lines_margin">10dp</dimen>
+    <dimen name="first_line_margin">5dp</dimen>
+    <dimen name="second_line_margin">11dp</dimen>
+    <dimen name="third_line_margin">17dp</dimen>
+    <dimen name="forth_line_margin">23dp</dimen>
+    <item name="line_alpha" format="float" type="dimen">0.5</item>
+    <dimen name="line_overlap_negative_margin">-10dp</dimen>
+    <dimen name="platform_top_margin">50dp</dimen>
+    <dimen name="train_in_margin">4dp</dimen>
+    <dimen name="train_car_in_margin">1dp</dimen>
+    <dimen name="platform_sign_text_size">14sp</dimen>
+    <dimen name="arrive_at_text_size">10sp</dimen>
 </resources>
