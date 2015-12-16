@@ -256,15 +256,19 @@ public class StationActivity extends AppCompatActivity  implements RecyclerView.
                             rv.scrollBy(dx, dy);
                         }
                     }
-                    if(mGlobalScrollY < getShadowThreshold()){
+                    if (mGlobalScrollY < getShadowThreshold()) {
                         showHideShadow(false);
-                    }else if(!isShadowVisible){
+                    } else if (!isShadowVisible) {
                         showHideShadow(true);
                     }
+
+
                 }
             });
         }
     }
+
+
 
     @Override
     public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
@@ -311,7 +315,7 @@ public class StationActivity extends AppCompatActivity  implements RecyclerView.
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 try {
                     InputStream in = urlConnection.getInputStream();
-            //        InputStream in = new ByteArrayInputStream(testXml.getBytes(StandardCharsets.UTF_8));
+                 //   InputStream in = new ByteArrayInputStream(testXml.getBytes(StandardCharsets.UTF_8));
                     RealTimeXmlParser myParser = new RealTimeXmlParser();
                     mStation = myParser.parse(in);
                     return "";
